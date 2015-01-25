@@ -1,0 +1,16 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# docker /start script
+# -----------------------------------------------------------------------------
+
+# Create dir structure
+if [ ! -d /data/config ]; then
+  mkdir -p /data/config
+fi
+
+if [ ! -d /data/sickrage ]; then
+  mkdir -p /data/sickrage
+fi
+
+# Start
+exec /usr/bin/env python /opt/SickRage/SickBeard.py --datadir=/data/sickrage --config=/data/config/sickrage.ini --nolaunch

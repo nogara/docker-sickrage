@@ -1,0 +1,17 @@
+[Unit]
+Description=Default SickRage Service
+After=etcd.service
+After=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker pull edgard/sickrage
+ExecStartPre=-/usr/bin/docker stop sickrage
+ExecStartPre=-/usr/bin/docker kill sickrage
+ExecStartPre=-/usr/bin/docker rm sickrage
+ExecStart=/usr/bin/docker run --name sickrage -p 8081:8081 -v /srv/sickrage:/data edgard/sickrage
+
+ExecStop=/usr/bin/docker stop sickrage
+
+[Install]
+WantedBy=multi-user.target
