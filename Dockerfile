@@ -2,7 +2,7 @@ FROM docker.io/ubuntu:vivid
 MAINTAINER Edgard Castro <castro@edgard.org>
 
 # Keep image updated
-ENV REFRESHED_AT 2015-07-28-05-16Z
+ENV REFRESHED_AT 2015-09-21-17-52Z
 
 # Add repositories and update base
 RUN echo "deb http://archive.ubuntu.com/ubuntu/ vivid main restricted universe multiverse" > /etc/apt/sources.list \
